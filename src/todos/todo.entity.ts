@@ -14,7 +14,7 @@ export class Todo extends BaseEntity {
     @Column()
     is_active:boolean
 
-    @Column({nullable:true})
+    @Column({default:'very-high'})
     priority:string
 
     @CreateDateColumn({
