@@ -1,0 +1,33 @@
+import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+
+@Entity()
+export class Todo extends BaseEntity {
+    @PrimaryGeneratedColumn("increment")
+    id:number
+
+    @Column()
+    activity_group_id:number
+
+    @Column()
+    title:string
+
+    @Column()
+    is_active:boolean
+
+    @Column({nullable:true})
+    priority:string
+
+    @CreateDateColumn({
+        type: 'timestamp',
+        name: 'createdAt',
+        default: () => 'CURRENT_TIMESTAMP(6)',
+    })
+    createdAt: Date
+    
+    @UpdateDateColumn({
+    type: 'timestamp',
+    name: 'updatedAt',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+    })
+    updatedAt: Date
+}
